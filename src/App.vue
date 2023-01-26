@@ -12,7 +12,7 @@ export default {
     },
     components: { AppHeader, AppMain },
     methods: {
-        filterContents(name) {
+        filterContents(title) {
 
             console.log(this.moviesUrl)
 
