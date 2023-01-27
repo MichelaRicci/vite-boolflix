@@ -17,7 +17,7 @@ export default {
 <template>
 
 
-    <Searchbar :placeholder='Cerca un titolo'></Searchbar>
+    <Searchbar placeholder='Cerca un titolo'></Searchbar>
 
 
 </template>

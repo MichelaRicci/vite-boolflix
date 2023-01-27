@@ -3,7 +3,7 @@
 export default {
     name: 'Searchbar',
 
-    data: () => ([searching, '']),
+    data: () => ({ searching: '' }),
 
 
     props: {
