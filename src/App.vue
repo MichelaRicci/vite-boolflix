@@ -1,30 +1,31 @@
 <script >
 
-import { store } from './data/store.js'
+import axios from 'axios';
+import { store } from './data/store.js';
+import { api } from './data/';
+import Searchbar from './components/Searchbar.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 export default {
+
+    name: 'Boolflix',
+
     data() {
         return {
             store,
-            moviesUrl: 'https://api.themoviedb.org/3/search/movie?api_key=6f24d8181767396b3077f5017530fcb9&query='
+            api
         }
     },
-    components: { AppHeader, AppMain },
-    methods: {
-        filterContents(title) {
 
-            console.log(this.moviesUrl)
-
-        }
-    }
+    components: { AppHeader, AppMain, Searchbar },
 }
 
 </script>
 
 <template>
 
-    <AppHeader @search="filterContents"></AppHeader>
+    <AppHeader></AppHeader>
+
 
     <AppMain></AppMain>
 

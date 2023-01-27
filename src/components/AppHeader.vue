@@ -1,17 +1,24 @@
 <script>
 
+import Searchbar from './Searchbar.vue'
+
 export default {
 
-    name: 'AppHeader'
+    name: 'AppHeader',
+
+
+    components: { Searchbar }
 }
+
+
 
 </script>
 
 <template>
 
-    <input type="text" v-model.trim="searching" @keyup.enter="$emit('search', searching)"
-        placeholder="Cerca un titolo...">
-    <button>Cerca</button>
+
+    <Searchbar :placeholder='Cerca un titolo'></Searchbar>
+
 
 </template>
 
