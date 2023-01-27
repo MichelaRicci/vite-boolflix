@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 
 export default {
     name: 'Searchbar',
@@ -24,4 +24,4 @@ export default {
             :placeholder="placeholder || 'Cerca un titolo...'">
         <button type="submit">{{ buttonLabel || 'Cerca' }}</button>
     </form>
-</template>
+</template> -->

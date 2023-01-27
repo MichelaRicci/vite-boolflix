@@ -2,10 +2,11 @@
 
 import axios from 'axios';
 import { store } from './data/store.js';
-import { api } from './data/';
-import Searchbar from './components/Searchbar.vue';
+import { api } from './data/index.js';
+
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+
 export default {
 
     name: 'Boolflix',
@@ -13,18 +14,46 @@ export default {
     data() {
         return {
             store,
-            api
+            api,
+            term: '',
         }
     },
 
-    components: { AppHeader, AppMain, Searchbar },
+    components: { AppHeader, AppMain },
+
+    computed: {
+        parameters() {
+            return {
+                params: {
+                    language: api.language,
+                    api_key: api.key,
+                    query: this.term
+                }
+            }
+        }
+    },
+
+    methods: {
+        newTerm(searched) {
+            this.term = searched
+        },
+        searchMovies() {
+            if (!this.term) {
+                store.movies = []
+            }
+            axios.get(`${api.baseUri}/search/movie`, this.parameters)
+                .then(res => {
+                    store.movies = res.data.results
+                })
+        }
+    }
 }
 
 </script>
 
 <template>
 
-    <AppHeader></AppHeader>
+    <AppHeader @searched="newTerm" @submit="searchMovies"></AppHeader>
 
 
     <AppMain></AppMain>
