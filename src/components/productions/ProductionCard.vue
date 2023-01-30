@@ -1,50 +1,63 @@
 <script>
 
 import { store } from '../../data/store';
-
+import { api } from '../../data/index';
 
 
 export default {
     name: 'ProductionCard',
-    data: () => ({ store }),
+    data: () => ({ store, api }),
 
     props: {
-        content: Object
+        productions: Object
     },
 
-
     computed: {
-        title() {
-            return this.content.title || this.content.name
-        },
-
-        originalTitle() {
-            return this.content.original_title || this.content.original_name
-        },
-
         hasFlag() {
-            const flag = ['it', 'en']
-            return flag.includes(this.content.original_language)
+            const flags = ['it', 'en'];
+            return flags.includes(this.productions.original_language);
         },
 
-        flagSrc() {
-            const url = URL(`../../assets/img/${this.content.original_language}.png`, import.meta.url);
-            return url.href
+        srcFlags() {
+            const url = new URL(`../../assets/img/${this.productions.original_language}.png`, import.meta.url);
+            return url.href;
         },
+
+        posterUrl() {
+            let posterUrl = "";
+            if (this.prod.poster_path) {
+                posterUrl = poster + this.productions.poster_path;
+            }
+            return posterUrl;
+
+        },
+
+        vote() {
+            return Math.floor(this.prod.vote_average / 2);
+        }
+
 
     }
-
 }
+
+
 
 </script>
 
 <template>
 
-    <ul v-for="movie in store.movies">
-        <li>{{ movie.original_title }}</li>
-        <li>{{ movie.title }} </li>
-        <li> {{ movie.original_language }}</li>
-        <li>{{ movie.vote_average }}</li>
+    <ul v-for="productions in store.movies">
+        <li>{{ productions.original_title }}</li>
+        <li>{{ productions.title }} </li>
+        <li>
+            <img v-if="hasFlag" :src="srcFlags" :alt="productions.original_language">
+            <div v-else>{{ productions.original_language }}</div>
+        </li>
+        <li>{{ productions.vote_average }}</li>
+        <li>
+            <i v-for="n in 5" :class="n <= this.vote ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+        </li>
+        <li><img :src="posterUrl" :alt="productions.original_name"></li>
     </ul>
 </template>
 

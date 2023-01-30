@@ -7,7 +7,8 @@ import { api } from './data/index.js';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
-import ProductionCard from './components/productions/ProductionCard.vue';
+// import ProductionCard from './components/productions/ProductionCard.vue';
+// import ProductionSection from './components/productions/ProductionSection.vue';
 
 export default {
 
@@ -21,7 +22,7 @@ export default {
         }
     },
 
-    components: { AppHeader, AppMain, ProductionCard },
+    components: { AppHeader, AppMain },
 
     computed: {
         parameters() {
