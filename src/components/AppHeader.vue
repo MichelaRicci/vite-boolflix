@@ -11,7 +11,7 @@ export default {
         }
     },
 
-    components: { Searchbar },
+    // components: { Searchbar },
 
     props: {
         placeholder: String,
