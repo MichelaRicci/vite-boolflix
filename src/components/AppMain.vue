@@ -1,21 +1,19 @@
 <script>
 
 import { store } from '../data/store';
+import ProductionCard from './productions/ProductionCard.vue';
 
 export default {
     name: 'AppMain',
-    data: () => ({ store })
+    data: () => ({ store }),
+
+    components: { ProductionCard }
 }
 </script>
 
 <template>
 
-    <ul v-for="movie in store.movies">
-        <li>{{ movie.original_title }}</li>
-        <li>{{ movie.title }} </li>
-        <li> {{ movie.original_language }}</li>
-        <li>{{ movie.vote_average }}</li>
-    </ul>
+    <ProductionCard></ProductionCard>
 
 </template>
 

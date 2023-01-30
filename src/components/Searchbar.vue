@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 
 export default {
     name: 'Searchbar',
@@ -19,9 +19,17 @@ export default {
 
 <template>
 
+
+
     <form @submit.prevent="$emit('submit')">
         <input type="text" v-model.trim="searching" @keyup="$emit('searched', searching)"
             :placeholder="placeholder || 'Cerca un titolo...'">
         <button type="submit">{{ buttonLabel || 'Cerca' }}</button>
     </form>
-</template> -->
+
+
+</template>
+
+<style lang="scss" scoped>
+
+</style>
