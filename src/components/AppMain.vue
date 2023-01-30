@@ -1,19 +1,24 @@
 <script>
 
-import { store } from '../data/store';
-import ProductionCard from './productions/ProductionCard.vue';
+// import { store } from '../data/store';
+// import ProductionCard from './productions/ProductionCard.vue';
+import ProductionSection from './productions/ProductionSection.vue'
+
 
 export default {
     name: 'AppMain',
-    data: () => ({ store }),
 
-    components: { ProductionCard }
+    components: { ProductionSection }
 }
 </script>
 
 <template>
 
-    <ProductionCard></ProductionCard>
+    <ProductionSection collection="movies" title="Movies"></ProductionSection>
+
+    <ProductionSection collection="series" title="Tv Series"></ProductionSection>
+    <!-- 
+    <ProductionCard></ProductionCard> -->
 
 </template>
 

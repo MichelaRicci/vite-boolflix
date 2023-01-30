@@ -7,6 +7,8 @@ import { api } from './data/index.js';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
+import ProductionCard from './components/productions/ProductionCard.vue';
+
 export default {
 
     name: 'Boolflix',
@@ -19,7 +21,7 @@ export default {
         }
     },
 
-    components: { AppHeader, AppMain },
+    components: { AppHeader, AppMain, ProductionCard },
 
     computed: {
         parameters() {
@@ -37,7 +39,7 @@ export default {
         newTerm(searched) {
             this.term = searched
         },
-        searchMovies() {
+        searchProduction() {
             if (!this.term) {
                 store.movies = []
             }
@@ -53,7 +55,7 @@ export default {
 
 <template>
 
-    <AppHeader @searched="newTerm" @submit="searchMovies"></AppHeader>
+    <AppHeader @searched="newTerm" @submit="searchProduction"></AppHeader>
 
 
     <AppMain></AppMain>
