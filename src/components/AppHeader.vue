@@ -9,6 +9,8 @@ export default {
 
     components: { Searchbar },
 
+    emits: ['searched', 'submit']
+
 
 
 }
@@ -18,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <Searchbar></Searchbar>
+    <Searchbar @searched="$emit('searched', $event)" @submit="$emit('submit', $event)"></Searchbar>
 
 
 </template>

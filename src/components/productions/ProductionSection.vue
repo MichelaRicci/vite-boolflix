@@ -21,7 +21,7 @@ export default {
 <template>
     <section :id="collection">
         <h2>{{ title }}</h2>
-        <ProductionCard v-for="productions in store[collection]" :key="productions.id" :item="productions">
+        <ProductionCard v-for="production in store[collection]" :key="production.id" :production="production">
         </ProductionCard>
     </section>
 
